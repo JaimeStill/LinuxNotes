@@ -71,3 +71,16 @@ sudo rm -rf certificates_pkcs7_v5_13_dod
 ```bash
 sudo cp ~/.config/monitors.xml ~gdm/.config/
 ```
+
+## Git Commands
+
+```bash
+# show global config
+git config --list --global
+
+# set a global config variable
+git config --global <variable> <value>
+
+# remove a global config variable
+git config --global --unset <variable>
+```
