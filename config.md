@@ -46,6 +46,13 @@ Running `git config --list` in any repository within a sub-directory (recursive)
 user.email=jaime.still@work.com
 ```
 
+## Fix Fuzzy Text
+
+Install `gnome-tweaks` and set the following:
+
+* `Fonts/Hinting` - **Full**
+* `Fonts/Antialiasing` - **Subpixel (for LCD screens)**
+
 ## Smart Card
 
 ```bash

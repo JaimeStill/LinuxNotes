@@ -173,3 +173,9 @@ sudo dpkg -i ./azuredatastudio-linux-1.49.1.deb
 sudo apt update
 sudo apt install gh
 ```
+
+## Gnome Tweaks
+
+```bash
+sudo apt install gnome-tweaks
+```
