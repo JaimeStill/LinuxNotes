@@ -49,18 +49,6 @@ mv <files> <dir>
 mv ./*.md ./.notes
 ```
 
-## Install Fonts From Zip Archives
-
-* [Cascadia Code](https://github.com/microsoft/cascadia-code)
-* [Monaspace](https://github.com/githubnext/monaspace)
-* [Geist](https://github.com/vercel/geist-font)
-
-```bash
-unzip "*.zip" "*.ttf" "*.otf" -d ${HOME}/.fonts
-
-sudo fc-cache -f -v
-```
-
 ## Install DoD Certificates from Zip Archive
 
 ```bash
