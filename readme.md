@@ -4,5 +4,6 @@ The following sections capture configuration and notes pertaining to managing a 
 
 * [config](./config.md)
 * [containers](./containers.md)
+* [fixes](./fixes.md)
 * [packages](./packages.md)
 * [scripts](./scripts.md)
