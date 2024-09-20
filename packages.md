@@ -179,3 +179,14 @@ sudo apt install gh
 ```bash
 sudo apt install gnome-tweaks
 ```
+
+## Guake
+
+Press <kbd>F12</kbd> to open guake terminal.
+
+```bash
+sudo add-apt-repository ppa:linuxuprising/guake
+sudo apt update
+
+sudo apt install guake
+```
