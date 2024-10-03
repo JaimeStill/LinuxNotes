@@ -9,3 +9,11 @@ The sections below indicate how to fix encountered issues.
 ```bash
 xset -dpms
 ```
+
+## Broken Suspend
+
+[Source](https://github.com/pop-os/pop/issues/449#issuecomment-502746351)
+
+```bash
+sudo kernelstub -a mem_sleep_default=deep
+```
