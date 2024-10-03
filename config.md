@@ -2,6 +2,66 @@
 
 The following document captures strategies concerning configuration.
 
+## Initialize `pass`
+
+1. Generate a GPG key
+
+    ```bash
+    gpg --generate-key
+    ```
+
+    **Output**
+
+    ```
+    gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
+    This is free software: you are free to change and redistribute it.
+    There is NO WARRANTY, to the extent permitted by law.
+
+    gpg: directory '/home/jaime/.gnupg' created
+    gpg: keybox '/home/jaime/.gnupg/pubring.kbx' created
+    Note: Use "gpg --full-generate-key" for a full featured key generation dialog.
+
+    GnuPG needs to construct a user ID to identify your key.
+
+    Real name: Jaime Still
+    Email address: jpstill85@gmail.com
+    You selected this USER-ID:
+        "Jaime Still <jpstill85@gmail.com>"
+
+    Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
+    We need to generate a lot of random bytes. It is a good idea to perform
+    some other action (type on the keyboard, move the mouse, utilize the
+    disks) during the prime generation; this gives the random number
+    generator a better chance to gain enough entropy.
+    We need to generate a lot of random bytes. It is a good idea to perform
+    some other action (type on the keyboard, move the mouse, utilize the
+    disks) during the prime generation; this gives the random number
+    generator a better chance to gain enough entropy.
+    gpg: /home/jaime/.gnupg/trustdb.gpg: trustdb created
+    gpg: key DDA5D6A70FB57BD2 marked as ultimately trusted
+    gpg: directory '/home/jaime/.gnupg/openpgp-revocs.d' created
+    gpg: revocation certificate stored as '/home/jaime/.gnupg/openpgp-revocs.d/DFED41698758C8C15C9634D0DDA5D6A70FB57BD2.rev'
+    public and secret key created and signed.
+
+    pub   rsa3072 2024-10-03 [SC] [expires: 2026-10-03]
+        DFED41698758C8C15C9634D0DDA5D6A70FB57BD2
+    uid                      Jaime Still <jpstill85@gmail.com>
+    sub   rsa3072 2024-10-03 [E] [expires: 2026-10-03]
+    ```
+
+2. Initialize pass with generated public key, `DFED41698758C8C15C9634D0DDA5D6A70FB57BD2`:
+
+    ```bash
+    pass init DFED41698758C8C15C9634D0DDA5D6A70FB57BD2
+    ```
+
+    **Output**
+
+    ```
+    mkdir: created directory '/home/jaime/.password-store/'
+    Password store initialized for DFED41698758C8C15C9634D0DDA5D6A70FB57BD2
+    ```
+
 ## Install Fonts From Zip Archives
 
 * [Cascadia Code](https://github.com/microsoft/cascadia-code)
