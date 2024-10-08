@@ -190,3 +190,9 @@ sudo apt update
 
 sudo apt install guake
 ```
+
+## Pandoc
+
+```sh
+sudo apt install pandoc texlive
+```
