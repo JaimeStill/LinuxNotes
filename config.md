@@ -4,6 +4,8 @@ The following document captures strategies concerning configuration.
 
 ## [Install Cosmic Epoch](https://github.com/pop-os/cosmic-epoch?tab=readme-ov-file#installing-on-pop_os)
 
+> Not active. Signal did not work in Cosmic.
+
 1. Enable Wayland
 
     ```sh
@@ -49,6 +51,14 @@ The following document captures strategies concerning configuration.
     ```
 
 After logging out, click on your user and there will be a sprocket at the bottom right. Change the setting to COSMIC. Proceed to log in.
+
+## Revert Greeter
+
+This was required after previewing the COSMIC desktop and setting `cosmic-greeter` as the default.
+
+```sh
+sudo dpkg-reconfigure gdm3
+```
 
 ## Initialize `pass`
 
