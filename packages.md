@@ -196,3 +196,16 @@ sudo apt install guake
 ```sh
 sudo apt install pandoc texlive
 ```
+
+### wkhtmltopdf
+
+```sh
+sudo apt install wkhtmltopdf
+```
+
+### Markdown to PDF with Styling
+
+```sh
+# replace input and output with file names
+pandoc -t html --css ~/github.css <input>.md -o <output>.pdf --pdf-engine-opt=--enable-local-file-access --metadata title="Git Setup"
+```
