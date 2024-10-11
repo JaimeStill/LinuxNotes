@@ -2,6 +2,18 @@
 
 The following document captures strategies concerning configuration.
 
+## Change Emoji Keyboard Mapping
+
+1. Open **IBus Preferences**:
+
+    ```sh
+    ibus-setup
+    ```
+
+2. Change to the Emoji tab.
+
+3. Modify **Emoji annotation** to <kbd>Super + .</kbd> by clicking the `...` menu button.
+
 ## [Install Cosmic Epoch](https://github.com/pop-os/cosmic-epoch?tab=readme-ov-file#installing-on-pop_os)
 
 > Not active. Signal did not work in Cosmic.
