@@ -209,3 +209,19 @@ sudo apt install wkhtmltopdf
 # replace input and output with file names
 pandoc -t html --css ~/github.css <input>.md -o <output>.pdf --pdf-engine-opt=--enable-local-file-access --metadata title="Git Setup"
 ```
+
+## Node.js
+
+```sh
+# install nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+
+# download and install Node.js
+nvm install 20
+
+# verify the right Node.js version
+node -v
+
+# verify the right npm version
+npm -v
+```
