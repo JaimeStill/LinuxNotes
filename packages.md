@@ -225,3 +225,25 @@ node -v
 # verify the right npm version
 npm -v
 ```
+
+## Deno 2
+
+```sh
+curl -fsSL https://deno.land/install.sh | sh
+```
+
+### Enable Completions
+
+```sh
+# create if bash_completions.d does not exist
+sudo mkdir /usr/local/etc/bash_completions.d
+
+# grant permissions
+sudo chmod 777 /usr/local/etc/bash_completions.d/
+
+# output bash completions setup
+deno completions bash > /usr/local/etc/bash_completions.d/deno.bash
+
+# source deno completions
+source /usr/local/etc/bash_completions.d/deno.bash
+```
