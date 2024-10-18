@@ -9,3 +9,10 @@ The sections below indicate how to fix encountered issues.
 ```bash
 xset -dpms
 ```
+
+## Clean Firefox
+
+```bash
+sudo rm -rf /usr/lib/firefox/
+rm -rf ~/.var/app/org.mozilla.firefox/
+```

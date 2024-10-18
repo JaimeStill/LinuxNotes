@@ -190,3 +190,10 @@ sudo apt update
 
 sudo apt install guake
 ```
+
+## Microsoft Fonts
+
+```bash
+sudo apt install ttf-mscorefonts-installer
+sudo fc-cache -f -v
+```

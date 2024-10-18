@@ -2,6 +2,12 @@
 
 The following document captures strategies concerning configuration.
 
+## Set Default Terminal
+
+```bash
+sudo update-alternatives --config x-terminal-emulator
+```
+
 ## Install Fonts From Zip Archives
 
 * [Cascadia Code](https://github.com/microsoft/cascadia-code)
