@@ -8,6 +8,136 @@ The following document captures strategies concerning configuration.
 sudo update-alternatives --config x-terminal-emulator
 ```
 
+## Change Emoji Keyboard Mapping
+
+1. Open **IBus Preferences**:
+
+    ```sh
+    ibus-setup
+    ```
+
+2. Change to the Emoji tab.
+
+3. Modify **Emoji annotation** to <kbd>Super + .</kbd> by clicking the `...` menu button.
+
+## [Install Cosmic Epoch](https://github.com/pop-os/cosmic-epoch?tab=readme-ov-file#installing-on-pop_os)
+
+> Not active. Signal did not work in Cosmic.
+
+1. Enable Wayland
+
+    ```sh
+    sudo nano /etc/gdm3/custom.conf
+    ```
+
+2. Change `WaylandEnable` to `true`
+
+    ```conf
+    WaylandEnable=true
+    ```
+
+3. Reboot for the change to take effect
+
+4. Update `udev` rules for NVIDIA users
+
+    ```sh
+    sudo nano /usr/lib/udev/rules.d/61-gdm.rules
+    ```
+
+5. Look for `LABEL="gdm_prefer_xorg"` and `LABEL="gdm_disable_wayland"`. Add `#` to the `RUN` statements so they look like this:
+
+    ```conf
+    LABEL="gdm_prefer_xorg"
+    #RUN+="/usr/libexec/gdm-runtime-config set daemon PreferredDisplayServer xorg"
+    GOTO="gdm_end"
+
+    LABEL="gdm_disable_wayland"
+    #RUN+="/usr/libexec/gdm-runtime-config set daemon WaylandEnable false"
+    GOTO="gdm_end"
+    ```
+
+6. Restart gdm
+
+    ```sh
+    sudo systemctl restart gdm
+    ```
+
+7. Install COSMIC
+
+    ```sh
+    sudo apt install cosmic-session
+    ```
+
+After logging out, click on your user and there will be a sprocket at the bottom right. Change the setting to COSMIC. Proceed to log in.
+
+## Revert Greeter
+
+This was required after previewing the COSMIC desktop and setting `cosmic-greeter` as the default.
+
+```sh
+sudo dpkg-reconfigure gdm3
+```
+
+## Initialize `pass`
+
+1. Generate a GPG key
+
+    ```bash
+    gpg --generate-key
+    ```
+
+    **Output**
+
+    ```
+    gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
+    This is free software: you are free to change and redistribute it.
+    There is NO WARRANTY, to the extent permitted by law.
+
+    gpg: directory '/home/jaime/.gnupg' created
+    gpg: keybox '/home/jaime/.gnupg/pubring.kbx' created
+    Note: Use "gpg --full-generate-key" for a full featured key generation dialog.
+
+    GnuPG needs to construct a user ID to identify your key.
+
+    Real name: Jaime Still
+    Email address: jpstill85@gmail.com
+    You selected this USER-ID:
+        "Jaime Still <jpstill85@gmail.com>"
+
+    Change (N)ame, (E)mail, or (O)kay/(Q)uit? O
+    We need to generate a lot of random bytes. It is a good idea to perform
+    some other action (type on the keyboard, move the mouse, utilize the
+    disks) during the prime generation; this gives the random number
+    generator a better chance to gain enough entropy.
+    We need to generate a lot of random bytes. It is a good idea to perform
+    some other action (type on the keyboard, move the mouse, utilize the
+    disks) during the prime generation; this gives the random number
+    generator a better chance to gain enough entropy.
+    gpg: /home/jaime/.gnupg/trustdb.gpg: trustdb created
+    gpg: key DDA5D6A70FB57BD2 marked as ultimately trusted
+    gpg: directory '/home/jaime/.gnupg/openpgp-revocs.d' created
+    gpg: revocation certificate stored as '/home/jaime/.gnupg/openpgp-revocs.d/DFED41698758C8C15C9634D0DDA5D6A70FB57BD2.rev'
+    public and secret key created and signed.
+
+    pub   rsa3072 2024-10-03 [SC] [expires: 2026-10-03]
+        DFED41698758C8C15C9634D0DDA5D6A70FB57BD2
+    uid                      Jaime Still <jpstill85@gmail.com>
+    sub   rsa3072 2024-10-03 [E] [expires: 2026-10-03]
+    ```
+
+2. Initialize pass with generated public key, `DFED41698758C8C15C9634D0DDA5D6A70FB57BD2`:
+
+    ```bash
+    pass init DFED41698758C8C15C9634D0DDA5D6A70FB57BD2
+    ```
+
+    **Output**
+
+    ```
+    mkdir: created directory '/home/jaime/.password-store/'
+    Password store initialized for DFED41698758C8C15C9634D0DDA5D6A70FB57BD2
+    ```
+
 ## Install Fonts From Zip Archives
 
 * [Cascadia Code](https://github.com/microsoft/cascadia-code)

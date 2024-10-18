@@ -16,3 +16,11 @@ xset -dpms
 sudo rm -rf /usr/lib/firefox/
 rm -rf ~/.var/app/org.mozilla.firefox/
 ```
+
+## Broken Suspend
+
+[Source](https://github.com/pop-os/pop/issues/449#issuecomment-502746351)
+
+```bash
+sudo kernelstub -a mem_sleep_default=deep
+```

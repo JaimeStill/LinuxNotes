@@ -197,3 +197,60 @@ sudo apt install guake
 sudo apt install ttf-mscorefonts-installer
 sudo fc-cache -f -v
 ```
+
+## Pandoc
+
+```sh
+sudo apt install pandoc texlive
+```
+
+### wkhtmltopdf
+
+```sh
+sudo apt install wkhtmltopdf
+```
+
+### Markdown to PDF with Styling
+
+```sh
+# replace input and output with file names
+pandoc -t html --css ~/github.css <input>.md -o <output>.pdf --pdf-engine-opt=--enable-local-file-access --metadata title="Git Setup"
+```
+
+## Node.js
+
+```sh
+# install nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+
+# download and install Node.js
+nvm install 20
+
+# verify the right Node.js version
+node -v
+
+# verify the right npm version
+npm -v
+```
+
+## Deno 2
+
+```sh
+curl -fsSL https://deno.land/install.sh | sh
+```
+
+### Enable Completions
+
+```sh
+# create if bash_completions.d does not exist
+sudo mkdir /usr/local/etc/bash_completions.d
+
+# grant permissions
+sudo chmod 777 /usr/local/etc/bash_completions.d/
+
+# output bash completions setup
+deno completions bash > /usr/local/etc/bash_completions.d/deno.bash
+
+# source deno completions
+source /usr/local/etc/bash_completions.d/deno.bash
+```
