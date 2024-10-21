@@ -6,6 +6,32 @@
 sudo apt install neofetch
 ```
 
+## Firefox
+
+```sh
+sudo install -d -m 0755 /etc/apt/keyrings
+```
+
+```sh
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+```
+
+```sh
+echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+```
+
+```sh
+echo '
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+' | sudo tee /etc/apt/preferences.d/mozilla
+```
+
+```sh
+sudo apt update && sudo apt install firefox
+```
+
 ## Spotify
 
 ```bash
@@ -145,7 +171,7 @@ Download the latest [DEB package](https://desktop.docker.com/linux/main/amd64/do
 sudo apt install ./docker-desktop-<arch>.deb
 ```
 
-## Azure data Studio
+## Azure Data Studio
 
 Download the [.deb](https://azuredatastudio-update.azurewebsites.net/latest/linux-deb-x64/stable) file.
 
