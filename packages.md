@@ -280,3 +280,9 @@ deno completions bash > /usr/local/etc/bash_completions.d/deno.bash
 # source deno completions
 source /usr/local/etc/bash_completions.d/deno.bash
 ```
+
+## Remove Pop Shop
+
+```sh
+sudo apt remove pop-shop
+```
