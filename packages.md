@@ -227,13 +227,7 @@ sudo fc-cache -f -v
 ## Pandoc
 
 ```sh
-sudo apt install pandoc texlive
-```
-
-### wkhtmltopdf
-
-```sh
-sudo apt install wkhtmltopdf
+sudo apt install pandoc texlive wkhtmltopdf -y
 ```
 
 ### Markdown to PDF with Styling
