@@ -2,6 +2,23 @@
 
 The following document captures strategies concerning configuration.
 
+## Strip newlines from **`xclip`**
+
+Open **`~/.bashrc`** and add the following:
+
+```sh
+# Alias to strip newline from xclip
+alias xclip='xargs echo -n | xclip -selection clipboard'
+```
+
+Usage:
+
+```sh
+uuidgen | xclip
+```
+
+Allows you to paste the results without it appending a newline.
+
 ## Set Default Terminal
 
 ```bash
