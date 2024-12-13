@@ -2,6 +2,47 @@
 
 The following document captures strategies concerning configuration.
 
+## Manually Add 16:9 Resolution
+
+```sh
+# determine settings
+sudo cvt 2560 1440
+
+# output
+# 2560x1440 59.96 Hz (CVT 3.69M9) hsync: 89.52 kHz; pclk: 312.25 MHz
+Modeline "2560x1440_60.00"  312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync
+
+# new mode
+sudo sxrandr --newmode "2560x1440_60.00"  312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync
+
+# query outputs
+xrandr -q
+
+# output
+Screen 0: minimum 8 x 8, current 3440 x 1440, maximum 32767 x 32767
+DP-0 disconnected (normal left inverted right x axis y axis)
+DP-1 disconnected (normal left inverted right x axis y axis)
+HDMI-0 disconnected (normal left inverted right x axis y axis)
+DP-2 disconnected (normal left inverted right x axis y axis)
+DP-3 disconnected (normal left inverted right x axis y axis)
+DP-4 disconnected (normal left inverted right x axis y axis)
+DP-5 disconnected (normal left inverted right x axis y axis)
+USB-C-0 disconnected (normal left inverted right x axis y axis)
+DP-1-1 connected primary 3440x1440+0+0 (normal left inverted right x axis y axis) 798mm x 335mm
+   3440x1440     59.97*+  84.96    49.99  
+   1024x768      60.00  
+   800x600       60.32  
+   640x480       60.00    59.94  
+   2560x1440_60.00  59.96  
+HDMI-1-1 disconnected (normal left inverted right x axis y axis)
+  2560x1440_60.00 (0x282) 312.250MHz -HSync +VSync
+        h: width  2560 start 2752 end 3024 total 3488 skew    0 clock  89.52KHz
+        v: height 1440 start 1443 end 1448 total 1493           clock  59.96Hz
+
+# add mode to output
+sudo xrandr --addmode DP-1-1 2560x1440_60.00
+```
+
 ## Strip newlines from **`xclip`**
 
 Open **`~/.bashrc`** and add the following:
@@ -25,7 +66,7 @@ Allows you to paste the results without it appending a newline.
 sudo update-alternatives --config x-terminal-emulator
 ```
 
-## Change Emoji Keyboard Mapping
+## Change Emoji Keyboard Mappin
 
 1. Open **IBus Preferences**:
 
