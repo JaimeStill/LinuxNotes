@@ -2,6 +2,12 @@
 
 The following document captures strategies concerning configuration.
 
+## Change Default Terminal
+
+```bash
+sudo update-alternatives --config x-terminal-emulator
+```
+
 ## Manually Add 16:9 Resolution
 
 ```sh
