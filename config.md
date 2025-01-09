@@ -2,6 +2,23 @@
 
 The following document captures strategies concerning configuration.
 
+## Alias System Updates
+
+```bash
+# modify bash config
+nano ~/.bashrc
+```
+
+```sh
+# alias 'up' to a full system update and clean
+alias up='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
+```
+
+```bash
+# load changes into session
+. ~/.bashrc
+```
+
 ## Change Default Terminal
 
 ```bash
