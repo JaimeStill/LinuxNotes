@@ -73,6 +73,12 @@ sudo apt update -y
 sudo apt install ubuntu-cleaner
 ```
 
+## UUID Runtime
+
+```bash
+sudo apt install uuid-runtime -y
+```
+
 ## Cosmic Packages
 
 ```bash
