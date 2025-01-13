@@ -200,6 +200,62 @@ sudo apt update
 sudo apt install gh
 ```
 
+## Neovim
+
+```bash
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install neovim
+```
+
+### [LazyVim](https://www.lazyvim.org/installation)
+
+Clear any existing configs
+
+```bash
+# required
+mv ~/.config/nvim{,.bak}
+
+# optional but recommended
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
+```
+
+Clone the starter into the neovim config directory.
+
+```bash
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+```
+
+Remove git to allow source control of config.
+
+```bash
+rm -rf ~/.config/nvim/.git
+```
+
+Install dependencies
+
+```bash
+# Node.js provider
+npm i -g neovim
+
+# luarocks
+sudo apt install luarocks
+
+# lazygit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit -D -t /usr/local/bin/
+
+# ripgrep
+sudo apt install ripgrep
+
+# tree-sitter executable
+npm i -g tree-sitter-cli
+```
+
 ## Gnome Tweaks
 
 ```bash
