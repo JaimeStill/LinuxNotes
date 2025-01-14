@@ -177,6 +177,34 @@ Download the latest [DEB package](https://desktop.docker.com/linux/main/amd64/do
 sudo apt install ./docker-desktop-<arch>.deb
 ```
 
+## kubectl
+
+```bash
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+rm -f kubectl
+```
+
+## minikube
+
+```bash
+curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
+
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+```
+
+## kompose
+
+```bash
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.35.0/kompose-linux-amd64 -o kompose
+
+chmod +x kompose
+
+sudo mv ./kompose /usr/local/bin/kompose
+```
+
 ## Azure Data Studio
 
 Download the [.deb](https://azuredatastudio-update.azurewebsites.net/latest/linux-deb-x64/stable) file.

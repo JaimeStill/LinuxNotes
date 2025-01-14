@@ -2,6 +2,22 @@
 
 The following document captures strategies concerning configuration.
 
+## Autocompletion
+
+```bash
+# modify bash config
+nano ~/.bashrc
+```
+
+```sh
+# autocomplete
+source <(deno completions bash)
+source <(ng completion script)
+source <(kubectl completion bash)
+source <(minikube completion bash)
+source <(kompose completion bash)
+```
+
 ## Alias System Updates
 
 ```bash
