@@ -371,6 +371,18 @@ source /usr/local/etc/bash_completions.d/deno.bash
 sudo apt remove pop-shop
 ```
 
+## [NVIDIA Cuda Toolkit](https://developer.nvidia.com/cuda-downloads)
+
+```sh
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+
+sudo apt-get update
+
+sudo apt-get -y install cuda-toolkit-12-6
+```
+
 ## [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
 ```sh
@@ -384,4 +396,9 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
 ```sh
 # update repository sources and install
 sudo apt update && sudo apt install -y nvidia-container-toolkit
+```
+
+```sh
+# configure the container runtime
+nvidia-ctk runtime configure --runtime=docker --config=$HOME/.docker/daemon.json
 ```
