@@ -2,6 +2,34 @@
 
 The following document captures strategies concerning configuration.
 
+## Increase File Watch Size Limit
+
+View current configuration:
+
+```sh
+sysctl fs.inotify
+```
+
+Open config for modification:
+
+```sh
+code /etc/sysctl.conf
+```
+
+Set the following values at the bottom of the config file:
+
+```sh
+fs.inotify.max_queued_events = 65536
+fs.inotify.max_user_instances=524288
+fs.inotify.max_user_watches=524288
+```
+
+Apply the configuration:
+
+```sh
+sudo sysctl -p
+```
+
 ## Autocompletion
 
 ```bash
