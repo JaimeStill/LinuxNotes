@@ -402,3 +402,28 @@ sudo apt update && sudo apt install -y nvidia-container-toolkit
 # configure the container runtime
 nvidia-ctk runtime configure --runtime=docker --config=$HOME/.docker/daemon.json
 ```
+
+## Razer RGB Lighting
+
+Install OpenRazer:
+
+```sh
+sudo apt install software-properties-gtk
+sudo add-apt-repository ppa:openrazer/stable
+sudo apt update
+sudo apt install openrazer-meta
+```
+
+Add user to the plugdev group:
+
+```sh
+sudo gpasswd -a $USER plugdev
+```
+
+Install a GUI to manage and tweak options:
+
+```sh
+sudo add-apt-repository ppa:polychromatic/stable
+sudo apt update
+sudo apt install polychromatic
+```
