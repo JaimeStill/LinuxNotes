@@ -2,6 +2,15 @@
 
 The following document captures strategies concerning configuration.
 
+## Startup Performance Mode
+
+To default to performance mode, open **Startup Applications** from the launcher and add the following:
+
+- **Name**: Performance Mode
+- **Command**: `system76-power profile performance`
+- **Comment**: Automatically prefer performance power setting
+
+
 ## Increase File Watch Size Limit
 
 View current configuration:
