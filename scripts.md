@@ -1,5 +1,11 @@
 # Scripts
 
+## Fix NTFS Drive Access
+
+```sh
+sudo ntfsfix /dev/"device name"
+```
+
 ## ANSI Rainbow
 
 ```sh
