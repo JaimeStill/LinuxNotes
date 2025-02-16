@@ -2,6 +2,46 @@
 
 The following document captures strategies concerning configuration.
 
+## Auto-mount Drives
+
+Find drive's UUID and type
+
+```sh
+lsblk -o NAME,FSTYPE,SIZE,UUID,MOUNTPOINTS
+```
+
+Create entries in **`fstab`**
+
+```sh
+sudo nano /etc/fstab
+```
+
+```sh
+<file-system> <mount-point> <type> <options> <dump> <pass>
+UUID=<UUID> /media/<user>/<label> <FSTYPE> defaults 0 0
+
+# example
+UUID=<UUID> /media/jaime/ssd-store ext4 defaults 0 0
+```
+
+Test **`fstab`** configuration:
+
+```sh
+sudo findmnt --verify
+```
+
+Should output with:
+
+```
+Success, no errors or warnings detected
+```
+
+Restart:
+
+```sh
+sudo reboot now
+```
+
 ## Startup Performance Mode
 
 To default to performance mode, open **Startup Applications** from the launcher and add the following:
