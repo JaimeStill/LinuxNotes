@@ -1,9 +1,16 @@
 # Linux Configuration and Notes
 
-The following sections capture configuration and notes pertaining to managing a Linux install (in this case, Pop!_OS)
+Distro: [Pop_OS! 24.04 COSMIC](https://system76.com/cosmic/)
 
-* [config](./config.md)
-* [containers](./containers.md)
-* [fixes](./fixes.md)
-* [packages](./packages.md)
-* [scripts](./scripts.md)
+Initial installation, configuration, and setup:
+
+1. [install](./install.md)
+2. [config](./config.md)
+3. [setup](./setup.md)
+
+Reference:
+
+- [scripts](./scripts.md)
+
+## Links
+- [System 76 Support](https://support.system76.com/)

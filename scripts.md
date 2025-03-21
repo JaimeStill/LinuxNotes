@@ -1,9 +1,10 @@
 # Scripts
 
-## Fix NTFS Drive Access
+## Markdown to PDF with Styling
 
 ```sh
-sudo ntfsfix /dev/"device name"
+# replace input and output with file names
+pandoc -t html --css ~/github.css <input>.md -o <output>.pdf --pdf-engine-opt=--enable-local-file-access --metadata title="Git Setup"
 ```
 
 ## ANSI Rainbow
@@ -14,6 +15,41 @@ do
     echo -e "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i)";
 done
 ```
+
+## View Only Directories
+
+```bash
+ls -l | grep '^d'
+```
+
+## Copy Monitor Settings to Login Screen
+
+```bash
+sudo cp ~/.config/monitors.xml ~gdm/.config/
+```
+
+## Change Default Terminal
+
+```bash
+sudo update-alternatives --config x-terminal-emulator
+```
+
+## Strip newlines from **`xclip`**
+
+Open **`~/.bashrc`** and add the following:
+
+```sh
+# Alias to strip newline from xclip
+alias xclip='xargs echo -n | xclip -selection clipboard'
+```
+
+Usage:
+
+```sh
+uuidgen | xclip
+```
+
+Allows you to paste the results without it appending a newline.
 
 ## Apt
 
@@ -49,45 +85,35 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 sudo killall apt apt-get
 ```
 
-## View Only Directories
+## Fixes
+
+The sections below indicate how to fix encountered issues.
+
+### Screen Going Blank After 30 Seconds
+
+[Source](https://www.reddit.com/r/pop_os/comments/eln8bp/screen_going_black_after_30_seconds/)
 
 ```bash
-ls -l | grep '^d'
+xset -dpms
 ```
 
-## Move Files
+### Clean Firefox
 
 ```bash
-mv <files> <dir>
-
-# example
-mv ./*.md ./.notes
+sudo rm -rf /usr/lib/firefox/
+rm -rf ~/.var/app/org.mozilla.firefox/
 ```
 
-## Install DoD Certificates from Zip Archive
+### Broken Suspend
+
+[Source](https://github.com/pop-os/pop/issues/449#issuecomment-502746351)
 
 ```bash
-unzip unclass-certificates_pkcs7_DoD.zip "*.p7b" "*.sha256" "*.pem" -d /etc/ssl/certs
-cd /etc/ssl/certs
-sudo mv ./certificates_pkcs7_v5_13_dod/* ./
-sudo rm -rf certificates_pkcs7_v5_13_dod
+sudo kernelstub -a mem_sleep_default=deep
 ```
 
-## Copy Monitor Settings to Login Screen
+### Fix NTFS Drive Access
 
-```bash
-sudo cp ~/.config/monitors.xml ~gdm/.config/
-```
-
-## Git Commands
-
-```bash
-# show global config
-git config --list --global
-
-# set a global config variable
-git config --global <variable> <value>
-
-# remove a global config variable
-git config --global --unset <variable>
+```sh
+sudo ntfsfix /dev/"device name"
 ```
