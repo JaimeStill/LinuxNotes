@@ -14,8 +14,6 @@ alias up='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
 alias xclip='xargs echo -n | xclip -selection clipboard'
 alias az-cloud='az cloud set -n AzureCloud'
 alias az-gov='az cloud set -n AzureUSGovernment'
-alias az-gov-test='az account set -n s2va-gov-test'
-alias az-gov-ss='az account set -n s2va-gov-sharedservices'
 ```
 
 ```sh

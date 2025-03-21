@@ -1,5 +1,11 @@
 # Scripts
 
+## Change Azure CLI Account
+
+```sh
+az account set -n <sub-name>
+```
+
 ## Markdown to PDF with Styling
 
 ```sh
