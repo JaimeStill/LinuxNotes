@@ -16,6 +16,8 @@ alias az-cloud='az cloud set -n AzureCloud'
 alias az-gov='az cloud set -n AzureUSGovernment'
 ```
 
+dot source the changes into any opened instances of bash:
+
 ```sh
 . ~/.bashrc
 ```
