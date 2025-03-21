@@ -5,6 +5,7 @@
 ```sh
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export XCURSOR_SIZE=16
 
 source <(ng completion script)
 source <(kubectl completion bash)
@@ -25,7 +26,6 @@ dot source the changes into any opened instances of bash:
 ## `~/.profile`
 
 ```sh
-export XCURSOR_SIZE=16
 ```
 
 ## `~/.gitconfig`
