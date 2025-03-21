@@ -23,11 +23,6 @@ dot source the changes into any opened instances of bash:
 . ~/.bashrc
 ```
 
-## `~/.profile`
-
-```sh
-```
-
 ## `~/.gitconfig`
 
 The following configuration enables you to establish `git config` settings for any git repository contained within a specific sub-directory (recursive) of the configured directory.
