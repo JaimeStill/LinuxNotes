@@ -1,5 +1,11 @@
 # Scripts
 
+## Trim Video
+
+```sh
+ffmpeg -ss <hh:mm:ss> -to <hh:mm:ss> -i <input-video> -c copy <output-video>
+```
+
 ## Change Azure CLI Account
 
 ```sh
