@@ -7,6 +7,7 @@ Initial installation, configuration, and setup:
 1. [install](./install.md)
 2. [config](./config.md)
 3. [setup](./setup.md)
+4. [tweaks](./tweaks.md)
 
 Reference:
 
