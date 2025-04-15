@@ -46,4 +46,14 @@ Guide: [COSMIC - Setting a Cursor Theme](https://www.reddit.com/r/pop_os/comment
     ```ini
     [Settings]
     gtk-cursor-theme-name="Bibata_Ghost"
+    gtk-cursor-theme-size=16
     ```
+
+9. Create **`~/.Xresources`** (if it doesn't exist) and add the following:
+
+    ```
+    Xcursor.theme: Bibata_Ghost
+    Xcursor.size: 16
+    ```
+
+10. Execute `xrdb -merge ~/.Xresources`.
