@@ -6,6 +6,12 @@
 ffmpeg -ss <hh:mm:ss> -to <hh:mm:ss> -i <input-video> -c copy <output-video>
 ```
 
+## Recover Failed Service
+
+```sh
+systemctl reset-failed <service>
+```
+
 ## Change Azure CLI Account
 
 ```sh
