@@ -8,6 +8,14 @@ fwupdmgr refresh --force \
     && fwupdmgr update
 ```
 
+## Fix Lingering Compositor Output Configuration
+
+This occurs when you shutdown a laptop with an external monitor connected as the primary display, then boot your laptop with the monitor no longer connected. Running this command from a different TTY session (`ctrl + alt + F2`) will allow you to reload the greeter and start a session with the proper display settings:
+
+```sh
+rm ~/.local/state/cosmic-comp/outputs.ron
+```
+
 ## Trim Video
 
 ```sh
