@@ -1,5 +1,13 @@
 # Scripts
 
+## Firmware Update
+
+```sh
+fwupdmgr refresh --force \
+    && fwupdmgr get-updates \
+    && fwupdmgr update
+```
+
 ## Trim Video
 
 ```sh
