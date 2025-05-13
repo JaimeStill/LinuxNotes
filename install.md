@@ -5,6 +5,10 @@
 curl -sS https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 echo "deb https://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
+# configure nushell repository
+curl -fsSL https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/fury-nushell.gpg
+echo "deb https://apt.fury.io/nushell/ /" | sudo tee /etc/apt/sources.list.d/fury.list
+
 # update
 sudo apt update
 
@@ -12,6 +16,7 @@ sudo apt update
 sudo apt install -y \
   git \
   gstreamer1.0-plugins-bad \
+  nushell \
   pandoc \
   software-properties-common \
   software-properties-gtk \
@@ -32,7 +37,6 @@ sudo fc-cache -f -v
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-2-step-by-step-installation-instructions)
 - [GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
 - [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#scripted-install)
-- [Node.js](https://nodejs.org/en/download)
 - [Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
   - [Post-Installation Steps](https://docs.docker.com/engine/install/linux-postinstall/)
 - [Kubernetes](https://kubernetes.io/docs/tasks/tools/)
@@ -41,6 +45,7 @@ sudo fc-cache -f -v
 - [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
 - [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
   - [Configuration](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#configuration)
+- [Volta](https://volta.sh/) - this is an alternative to `nvm` that supports nushell.
 
 ## Flatpacks
 
