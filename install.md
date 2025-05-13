@@ -26,7 +26,8 @@ sudo apt install -y \
   ubuntu-restricted-extras \
   uuid-runtime \
   vlc \
-  wkhtmltopdf
+  wkhtmltopdf \
+  xclip
 
 # post install
 sudo fc-cache -f -v

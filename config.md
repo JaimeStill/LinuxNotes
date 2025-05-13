@@ -39,6 +39,20 @@ Set the config as follows:
 $env.config.show_banner = false
 $env.config.buffer_editor = "code"
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.volta/bin')
+
+def up [] {
+    sudo apt update ; sudo apt upgrade -y ; sudo apt autoremove -y ;
+}
+
+def fwup [] {
+    fwupdmgr refresh --force ; fwupdmgr get-updates ; fwupdmgr update
+}
+
+def clip [] {
+    |in| | xargs echo -n | xclip -selection clipboard
+}
+
+alias help-ng = echo "ng new <app> -g --minimal --routing --directory <dir> --style css --ssr false"
 ```
 
 ### Cosmic Terminal Profiles
