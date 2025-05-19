@@ -38,6 +38,84 @@ dot source hte changes into any open terminals:
 . ~/.profile
 ```
 
+## nushell
+
+In order to manage [nushell configuration](https://www.nushell.sh/book/configuration.html), you must first specify a buffer editor then run the config command:
+
+```nushell
+$env.config.buffer_editor = "code"
+
+config nu
+```
+
+Set the config as follows:
+
+```nushell
+$env.config = {
+    show_banner: false,
+    buffer_editor: "code"
+}
+
+$env.PATH = ($env.PATH
+    | split row (char esep)
+    | append '~/.volta/bin'
+    | append '~/.dotnet'
+    | append '/usr/local/go/bin'
+    | append '~/.dotnet'
+    | append '~/.dotnet/tools')
+
+$env.DOTNET_ROOT = '~/.dotnet'
+
+def up [] {
+    sudo apt update ; sudo apt upgrade -y ; sudo apt autoremove -y ;
+}
+
+def fwup [] {
+    fwupdmgr refresh --force ; fwupdmgr get-updates ; fwupdmgr update
+}
+
+def clip [] {
+    |in| | xargs echo -n | xclip -selection clipboard
+}
+
+alias help-ng = echo "ng new <app> -g --minimal --routing --directory <dir> --style css --ssr false"
+```
+
+### Cosmic Terminal Profiles
+
+Configuration for cosmic terminal is located in `~/.config/cosmic/com.system76.CosmicTerm/v1`.
+
+Set the `profiles` value to:
+
+```rs
+{
+    0: (
+        name: "nushell",
+        command: "nu",
+        syntax_theme_dark: "COSMIC Dark",
+        syntax_theme_light: "COSMIC Light",
+        tab_title: "",
+        working_directory: "",
+        hold: false,
+    ),
+    1: (
+        name: "bash",
+        command: "",
+        syntax_theme_dark: "COSMIC Dark",
+        syntax_theme_light: "COSMIC Light",
+        tab_title: "",
+        working_directory: "",
+        hold: false,
+    ),
+}
+```
+
+Set the `default_profile` value to:
+
+```rs
+Some(0)
+```
+
 ## `~/.gitconfig`
 
 The following configuration enables you to establish `git config` settings for any git repository contained within a specific sub-directory (recursive) of the configured directory.

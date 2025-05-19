@@ -22,6 +22,20 @@ rm ~/.local/state/cosmic-comp/outputs.ron
 ffmpeg -ss <hh:mm:ss> -to <hh:mm:ss> -i <input-video> -c copy <output-video>
 ```
 
+## Uninstall `nvm`
+
+```sh
+rm -rf ~/$NVM_DIR
+```
+
+Remove the following lines from `~/.bashrc`:
+
+```sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
 ## Recover Failed Service
 
 ```sh
