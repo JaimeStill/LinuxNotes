@@ -27,28 +27,29 @@ sudo apt install -y \
 sudo fc-cache -f -v
 ```
 
-- [Signal Desktop](https://signal.org/download/#)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-2-step-by-step-installation-instructions)
-- [GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
-- [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#scripted-install)
-- [Node.js](https://nodejs.org/en/download)
-- [Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
-  - [Post-Installation Steps](https://docs.docker.com/engine/install/linux-postinstall/)
-- [Kubernetes](https://kubernetes.io/docs/tasks/tools/)
-  - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
-  - [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
-- [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
-- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-  - [Configuration](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#configuration)
+* [Signal Desktop](https://signal.org/download/#)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-2-step-by-step-installation-instructions)
+* [GitHub CLI](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
+* [Go](https://go.dev/doc/install)
+* [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#scripted-install)
+* [Node.js](https://nodejs.org/en/download)
+* [Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
+  * [Post-Installation Steps](https://docs.docker.com/engine/install/linux-postinstall/)
+* [Kubernetes](https://kubernetes.io/docs/tasks/tools/)
+  * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+  * [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
+* [NVIDIA CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
+* [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+  * [Configuration](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#configuration)
 
 ## Flatpacks
 
 These applications are installed directly from the COSMIC Store:
 
-- Ente Auth
-- GIMP
-- Tweaks
+* Ente Auth
+* GIMP
+* Tweaks
 
 ## Razer RGB Lighting
 

@@ -3,10 +3,6 @@
 ## `~/.bashrc`
 
 ```sh
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-export XCURSOR_SIZE=16
-
 source <(ng completion script)
 source <(kubectl completion bash)
 source <(minikube completion bash)
@@ -24,6 +20,24 @@ dot source the changes into any opened instances of bash:
 . ~/.bashrc
 ```
 
+## `~/.profile`
+
+```sh
+export DOTNET_ROOT=$HOME/.dotnet
+export VOLTA_HOME="$HOME/.volta"
+export XCURSOR_SIZE=16
+
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
+export PATH="$PATH:$VOLTA_HOME/bin"
+```
+
+dot source hte changes into any open terminals:
+
+```sh
+. ~/.profile
+```
+
 ## `~/.gitconfig`
 
 The following configuration enables you to establish `git config` settings for any git repository contained within a specific sub-directory (recursive) of the configured directory.
@@ -31,10 +45,10 @@ The following configuration enables you to establish `git config` settings for a
 Any of the repositories encountered wtihin `s2va` below would receive this configuration:
 
 * `~` (Linux) or `$env:USERPROFILE` (Windows)
-    * s2va
-        * testing
-            * repository-a
-        * repository-b
+  * s2va
+    * testing
+      * repository-a
+    * repository-b
 
 ```sh
 [user]
