@@ -7,11 +7,15 @@ source <(ng completion script)
 source <(kubectl completion bash)
 source <(minikube completion bash)
 
+alias help-ng='echo "ng new <app> -g --minimal --routing --directory <dir> --style css --ssr false"'
 alias up='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
 alias fwup='fwupdmgr refresh --force && fwupdmgr get-updates && fwupdmgr update'
 alias xclip='xargs echo -n | xclip -selection clipboard'
 alias az-cloud='az cloud set -n AzureCloud'
 alias az-gov='az cloud set -n AzureUSGovernment'
+alias az-gov-test='az account set -n s2va-gov-test'
+alias az-gov-ss='az account set -n s2va-gov-sharedservices'
+alias guid='uuidgen'
 ```
 
 dot source the changes into any opened instances of bash:
