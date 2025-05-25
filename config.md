@@ -16,6 +16,10 @@ alias az-gov='az cloud set -n AzureUSGovernment'
 alias az-gov-test='az account set -n s2va-gov-test'
 alias az-gov-ss='az account set -n s2va-gov-sharedservices'
 alias guid='uuidgen'
+
+vsc() {
+    code "$1"; exit
+}
 ```
 
 dot source the changes into any opened instances of bash:
@@ -80,6 +84,11 @@ def fwup [] {
 
 def clip [] {
     |in| | xargs echo -n | xclip -selection clipboard
+}
+
+def vsc [workspace] {
+    ^code ($workspace | path expand)
+    exit
 }
 
 alias help-ng = echo "ng new <app> -g --minimal --routing --directory <dir> --style css --ssr false"
