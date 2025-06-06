@@ -103,15 +103,6 @@ Set the `profiles` value to:
 ```rs
 {
     0: (
-        name: "nushell",
-        command: "nu",
-        syntax_theme_dark: "COSMIC Dark",
-        syntax_theme_light: "COSMIC Light",
-        tab_title: "",
-        working_directory: "",
-        hold: false,
-    ),
-    1: (
         name: "bash",
         command: "",
         syntax_theme_dark: "COSMIC Dark",
@@ -120,6 +111,16 @@ Set the `profiles` value to:
         working_directory: "",
         hold: false,
     ),
+    1: (
+        name: "nushell",
+        command: "nu",
+        syntax_theme_dark: "COSMIC Dark",
+        syntax_theme_light: "COSMIC Light",
+        tab_title: "",
+        working_directory: "",
+        hold: false,
+    ),
+    
 }
 ```
 
