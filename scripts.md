@@ -8,6 +8,16 @@ fwupdmgr refresh --force \
     && fwupdmgr update
 ```
 
+## Keychron VIA Permissions
+
+[Keychron Launcher](https://launcher.keychron.com/) - requires a Chromium-based browser.
+
+If VIA doesn't work right away, navigate to chrome://device-log to determine the `/dev/hidraw#` number (where `#` is the device number).
+
+```sh
+sudo chmod a+rw /dev/hidraw#
+```
+
 ## Fix Lingering Compositor Output Configuration
 
 This occurs when you shutdown a laptop with an external monitor connected as the primary display, then boot your laptop with the monitor no longer connected. Running this command from a different TTY session (`ctrl + alt + F2`) will allow you to reload the greeter and start a session with the proper display settings:
