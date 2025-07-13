@@ -36,7 +36,7 @@ export VOLTA_HOME="$HOME/.volta"
 export XCURSOR_SIZE=16
 
 export PATH="$PATH:/usr/local/go/bin"
-export PATH=$PATH:$HOME/go/bin
+export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 export PATH="$PATH:$VOLTA_HOME/bin"
 ```
