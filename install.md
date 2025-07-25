@@ -16,11 +16,13 @@ sudo apt update
 sudo apt install -y \
   git \
   gstreamer1.0-plugins-bad \
+  libsqlite3-dev \
   nushell \
   pandoc \
   software-properties-common \
   software-properties-gtk \
   spotify-client \
+  sqlite3 \
   texlive \
   ttf-mscorefonts-installer \
   ubuntu-restricted-extras \
