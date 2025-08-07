@@ -1,5 +1,13 @@
 # Setup
 
+## Enable Containerized GPU Access
+
+```sh
+sudo nano /etc/nvidia-container-runtime/config.toml
+```
+
+Set `no-cgroups = false`.
+
 ## Auto-mount Drives
 
 Find drive's UUID and type
