@@ -51,6 +51,12 @@ sudo fc-cache -f -v
   * [Configuration](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#configuration)
 * [Volta](https://volta.sh/) - this is an alternative to `nvm` that supports nushell.
 
+## Go
+
+```sh
+rm -rf /usr/local/go && tar -C /usr/local -xzf go[version].[os]-[arch].tar.gz
+```
+
 ## Flatpacks
 
 These applications are installed directly from the COSMIC Store:
