@@ -50,11 +50,20 @@ sudo fc-cache -f -v
 * [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
   * [Configuration](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#configuration)
 * [Volta](https://volta.sh/) - this is an alternative to `nvm` that supports nushell.
+* [Zed](https://zed.dev/download)
 
 ## Go
 
 ```sh
 rm -rf /usr/local/go && tar -C /usr/local -xzf go[version].[os]-[arch].tar.gz
+```
+
+## Zed CLI
+
+After installing Zed, create a symlink to the binary:
+
+```sh
+sudo ln -s ~/.local/bin/zed /usr/local/bin/zed
 ```
 
 ## Flatpacks
