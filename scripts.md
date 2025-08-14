@@ -1,5 +1,34 @@
 # Scripts
 
+## Go Verison and Dependency Updates
+
+**Update Go Version**  
+
+```sh
+# update go version
+go mod edit -go=[go-version]
+
+go mod tidy
+```
+
+**Update Dependencies**  
+
+```sh
+# update the package in the current directory
+go get -u
+
+# update everything rooted here
+go get -u ./...
+
+# update a everything rooted in a sub-directory
+go get -u ./foo/...
+
+# update everything including test dependencies
+go get -u all
+
+go mod tidy
+```
+
 ## Firmware Update
 
 ```sh
