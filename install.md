@@ -58,14 +58,6 @@ sudo fc-cache -f -v
 rm -rf /usr/local/go && tar -C /usr/local -xzf go[version].[os]-[arch].tar.gz
 ```
 
-## Zed CLI
-
-After installing Zed, create a symlink to the binary:
-
-```sh
-sudo ln -s ~/.local/bin/zed /usr/local/bin/zed
-```
-
 ## Flatpacks
 
 These applications are installed directly from the COSMIC Store:

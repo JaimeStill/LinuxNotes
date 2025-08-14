@@ -3,6 +3,16 @@
 ## `~/.bashrc`
 
 ```sh
+export DOTNET_ROOT=$HOME/.dotnet
+export VOLTA_HOME="$HOME/.volta"
+export XCURSOR_SIZE=16
+
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
+export PATH="$PATH:$VOLTA_HOME/bin"
+
 source <(ng completion script)
 source <(kubectl completion bash)
 source <(minikube completion bash)
@@ -25,26 +35,7 @@ vsc() {
 dot source the changes into any opened instances of bash:
 
 ```sh
-. ~/.bashrc
-```
-
-## `~/.profile`
-
-```sh
-export DOTNET_ROOT=$HOME/.dotnet
-export VOLTA_HOME="$HOME/.volta"
-export XCURSOR_SIZE=16
-
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
-export PATH="$PATH:$VOLTA_HOME/bin"
-```
-
-dot source hte changes into any open terminals:
-
-```sh
-. ~/.profile
+source ~/.bashrc
 ```
 
 ## nushell
@@ -121,7 +112,7 @@ Set the `profiles` value to:
         working_directory: "",
         hold: false,
     ),
-    
+
 }
 ```
 
