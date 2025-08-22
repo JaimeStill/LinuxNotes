@@ -95,7 +95,7 @@ sudo fc-cache -f -v
     > [!IMPORTANT]
     > Search `pkcs` and download the **DoD PKI Only** bundle.
 
-    https://public.cyber.mil/pki-pke/pkipke-document-library/
+    https://www.cyber.mil/pki-pke/document-library
 
     ```sh
     unzip unclass-certificates_pkcs7_DoD.zip
