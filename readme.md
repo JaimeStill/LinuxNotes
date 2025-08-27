@@ -1,5 +1,8 @@
 # Linux Configuration and Notes
 
+> [!NOTE]
+> I have since migrated to [Omarchy](https://omarchy.org/)! I'm working on determining how to best organize all of my notes moving forward. 
+
 Distro: [Pop_OS! 24.04 COSMIC](https://system76.com/cosmic/)
 
 Initial installation, configuration, and setup:

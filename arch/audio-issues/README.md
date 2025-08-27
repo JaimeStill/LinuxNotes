@@ -143,3 +143,5 @@ paplay /usr/share/sounds/alsa/Front_Center.wav
 - [Arch Wiki - Dell XPS 16 9640](https://wiki.archlinux.org/title/Dell_XPS_16_(9640))
 - SOF Project documentation
 - ALSA CS42L43/CS35L56 codec documentation
+
+## Debug Log
