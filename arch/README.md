@@ -22,7 +22,9 @@ sudo tee /etc/docker/daemon.json > /dev/null <<EOF
 {
   "bip": "172.17.0.1/16",
   "dns": [
-    "172.17.0.1"
+    "8.8.8.8",
+    "8.8.8.4",
+    "1.1.1.1"
   ],
   "log-driver": "json-file",
   "log-opts": {
