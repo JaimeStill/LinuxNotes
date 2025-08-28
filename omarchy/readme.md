@@ -134,7 +134,7 @@ bindings = [
 $terminal = uwsm app -- alacritty
 $browser = omarchy-launch-browser
 
-bindd = SUPER, return, Terminal, exec, $terminal --working-directory=$(omarchy-cmd-terminal-cwd)
+bindd = SUPER, return, Terminal, exec, $terminal
 bindd = SUPER, F, File manager, exec, uwsm app -- nautilus --new-window
 bindd = SUPER, B, Browser, exec, uwsm app -- firefox
 bindd = SUPER, M, Music, exec, uwsm app -- spotify
