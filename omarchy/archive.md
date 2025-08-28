@@ -1,4 +1,6 @@
-# Omarchy Adjustments
+# Archive
+
+The following settings have been archived and are no longer necessary. Simply kept here in the event that they prove useful at a future point...
 
 ## iwd Race Condition
 
@@ -11,56 +13,6 @@ sudo nvim /etc/modules-load.d/iwlwifi.conf
 iwlwifi
 ```
 
-## Configure Docker to Work with NVIDIA Container Toolkit
-
-```sh
-sudo cp /etc/docker/daemon.json /etc/docker/daemon.json.backup
-
-sudo nvidia-ctk cdi generate --output/etc/cdi/nvidia.yaml
-
-sudo tee /etc/docker/daemon.json > /dev/null <<EOF
-{
-  "bip": "172.17.0.1/16",
-  "dns": [
-    "8.8.8.8",
-    "8.8.8.4",
-    "1.1.1.1"
-  ],
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-file": "5",
-    "max-size": "10m"
-  },
-  "runtimes": {
-    "nvidia": {
-      "args": [],
-      "path": "nvidia-container-runtime"
-    }
-  },
-  "features": {
-    "cdi": true
-  }
-}
-EOF
-
-sudo systemctl restart docker
-```
-
-Test with CDI:
-
-```sh
-docker run --rm --device nvidia.com/gpu=all nvidia/cuda:13.0.0-runtime-ubuntu22.04 nvidia-smi
-```
-
-Updated `docker-compose.yml` format:
-
-```yml
-services:
-  your-service:
-    image: your-image
-    devices:
-      - nvidia.com/gpus=all
-```
 
 ## System File Limits
 
@@ -107,6 +59,5 @@ systemctl --user daemon-reload
 # 6. Test the new limit
 ulimit -n
 ```
-
 
 
