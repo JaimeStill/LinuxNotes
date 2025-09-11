@@ -14,10 +14,12 @@ Be sure to follow each section in sequence as they are listed in order of depend
 Install the following packages (<kbd>Super+Alt+Space</kbd> -> Install -> Package):
 
 ```sh
+appgate-sdp
 azure-cli
 caligula
 ccid
 firefox
+libappindicator-gtk3
 nvidia-container-toolkit
 opensc
 otf-geist-mono-nerd
@@ -507,3 +509,42 @@ alias az-gov='az cloud set -n AzureUSGovernment'
 alias az-gov-test='az account set -n s2va-gov-test'
 alias az-gov-ss='az account set -n s2va-gov-sharedservices'
 ```
+
+## Appgate SDP VPN Configuration
+
+The following adjustments are necessary to enable the VPN client to function correctly on Arch Linux:
+
+1. Make `tun` persistent:
+
+  ```sh
+  echo `tun` | sudo tee /etc/modules-load.d/tun.conf
+  ```
+
+2. Create a dedicated IP forwarding config:
+
+  ```sh
+  echo 'net.ipv4.ip_forward = 1' | sudo tee /etc/sysctl.d/99-appgate.conf
+  ```
+
+3. Set network capabilities:
+
+  ```sh
+  # set service capabilities
+  sudo setcap cap_net_admin,cap_net_raw+ep "/opt/appgate/service/Appgate Service"
+
+  # set driver capabilities
+  sudo setcap cap_net_admin,cap_net_raw+ep /opt/appgate/appgate-driver
+
+  # verify
+  getcap "/opt/appgate/service/Appgate Service"
+  getcap /opt/appgate/appgate-driver
+  ```
+
+4. Start and enable the appgate driver service:
+
+  ```sh
+  sudo systemctl start appgatedriver.service
+  sudo systemctl enable appgatedriver.service
+  ```
+
+If it's running, quit and restart appgate SDP and you should have access to your sites.
