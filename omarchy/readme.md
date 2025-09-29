@@ -24,6 +24,7 @@ nvidia-container-toolkit
 opensc
 otf-geist-mono-nerd
 pcsclite
+visual-studio-code-bin
 ```
 
 Install the following AUR package (<kbd>Super+Alt+Space</kbd> -> Install -> AUR):
@@ -359,6 +360,19 @@ video/x-ms-asf=mpv.desktop
 video/x-ogm+ogg=mpv.desktop
 video/x-theora+ogg=mpv.desktop
 application/ogg=mpv.desktop
+```
+
+## VS Code Keyring
+
+VS Code with the SQL Server extension is currently the best option for interfacing with SQL containers, so for now it will have to be installed.
+
+To avoid issues with keyring storage, add the following setting to the end of `~/.vscode/argv.json`:
+
+```json
+{
+  /* other configuration */
+  "password-store": "gnome-libsecret"
+}
 ```
 
 ## iwd Race Condition
