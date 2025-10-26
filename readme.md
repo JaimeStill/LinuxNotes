@@ -4,3 +4,7 @@ Distros:
 
 - [Omarchy](./omarchy) (current)
 - [Pop_OS! 24.04 COSMIC](./pop)
+
+Tools:
+
+- [Neovim](./nvim)
