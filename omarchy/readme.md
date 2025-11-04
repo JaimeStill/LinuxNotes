@@ -156,6 +156,40 @@ bindd = SUPER, Y, YouTube, exec, omarchy-launch-webapp "https://youtube.com/"
 # bindd = SUPER, SPACE, Omarchy menu, exec, omarchy-menu
 ```
 
+`ghostty/config`
+
+```sh
+# Dynamic theme colors
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+
+# Font
+font-family = "Cascadia Code NF"
+font-style = Regular
+font-size = 11
+font-feature = +calt
+
+# Window
+window-padding-x = 14
+window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
+window-inherit-working-directory = true
+
+# Cursor stlying
+cursor-style = "block"
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Keyboard bindings
+keybind = f11=toggle_fullscreen
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+keybind = shift+enter=text:\n
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+0=reset_font_size
+```
+
 `hypr/hyprlock.conf`
 
 ```sh
