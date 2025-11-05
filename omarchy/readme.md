@@ -104,58 +104,6 @@ npm i -g @anthropic-ai/claude-code
 
 The following files are set at `~/.config`.
 
-`alacritty/alacritty.toml`
-
-```toml
-general.import = [ "~/.config/omarchy/current/theme/alacritty.toml" ]
-
-[env]
-TERM = "xterm-256color"
-
-[font]
-normal = { family = "GeistMono Nerd Font" }
-bold = { family = "GeistMono Nerd Font" }
-italic = { family = "GeistMono Nerd Font" }
-size = 10
-
-[window]
-padding.x = 14
-padding.y = 14
-decorations = "None"
-opacity = 0.98
-
-[keyboard]
-bindings = [
-{ key = "F11", action = "ToggleFullscreen" }
-]
-```
-
-`hypr/bindings.conf`
-
-```sh
-# Application bindings
-$terminal = uwsm app -- alacritty
-$browser = omarchy-launch-browser
-
-bindd = SUPER, return, Terminal, exec, $terminal
-bindd = SUPER, F, File manager, exec, uwsm app -- nautilus --new-window
-bindd = SUPER, B, Browser, exec, uwsm app -- firefox
-bindd = SUPER, M, Music, exec, uwsm app -- spotify
-bindd = SUPER, N, Neovim, exec, $terminal -e nvim
-bindd = SUPER, T, Activity, exec, $terminal -e btop
-bindd = SUPER, D, Docker, exec, $terminal -e lazydocker
-bindd = SUPER, G, Signal, exec, uwsm app -- signal-desktop
-bindd = SUPER, slash, Passwords, exec, uwsm app -- enteauth
-
-# If your web app url contains #, type it as ## to prevent hyperland treat it as comments
-bindd = SUPER, A, Claude, exec, omarchy-launch-webapp "https://claude.ai"
-bindd = SUPER, Y, YouTube, exec, omarchy-launch-webapp "https://youtube.com/"
-
-# Overwrite existing bindings, like putting Omarchy Menu on Super + Space
-# unbind = SUPER, Space
-# bindd = SUPER, SPACE, Omarchy menu, exec, omarchy-menu
-```
-
 `ghostty/config`
 
 ```sh
@@ -190,46 +138,33 @@ keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+0=reset_font_size
 ```
 
-`hypr/hyprlock.conf`
+`hypr/bindings.conf`
+
+Hyprland keyboard shortcuts
 
 ```sh
-source = ~/.config/omarchy/current/theme/hyprlock.conf
+# Application bindings
+$terminal = uwsm app -- $TERMINAL
+$browser = omarchy-launch-browser
 
-background {
-    monitor =
-    color = $color
-}
+bindd = SUPER, RETURN, Terminal, exec, $terminal
+bindd = SUPER SHIFT, F, File manager, exec, uwsm app -- nautilus --new-window
+bindd = SUPER SHIFT, B, Browser, exec, uwsm app -- firefox
+bindd = SUPER SHIFT, M, Music, exec, omarchy-launch-or-focus spotify
+bindd = SUPER SHIFT, N, Editor, exec, omarchy-launch-editor
+bindd = SUPER SHIFT, T, Activity, exec, $terminal -e btop
+bindd = SUPER SHIFT, D, Docker, exec, $terminal -e lazydocker
+bindd = SUPER SHIFT, G, Signal, exec, omarchy-launch-or-focus signal "uwsm app -- signal-desktop"
+bindd = SUPER SHIFT, slash, Passwords, exec, uwsm app -- enteauth
 
-animations {
-    enabled = false
-}
+# If your web app url contains #, type it as ## to prevent hyperland treat it as comments
+bindd = SUPER SHIFT, A, Claude, exec, omarchy-launch-webapp "https://claude.ai"
+bindd = SUPER SHIFT, E, Gmail, exec, omarchy-launch-webapp "https://gmail.com"
+bindd = SUPER SHIFT, Y, YouTube, exec, omarchy-launch-webapp "https://youtube.com/"
 
-input-field {
-    monitor =
-    size = 600, 100
-    position = 0, 0
-    halign = center
-    valign = center
-
-    inner_color = $inner_color
-    outer_color = $outer_color
-    outline_thickness = 4
-
-    font_family = GeistMono Nerd Font
-    font_color = $font_color
-
-    placeholder_text =   Enter Password 󰈷 
-    check_color = $check_color
-    fail_text = <i>$PAMFAIL ($ATTEMPTS)</i>
-
-    rounding = 0
-    shadow_passes = 0
-    fade_on_empty = false
-}
-
-auth {
-    fingerprint:enabled = true
-}
+# Overwrite existing bindings, like putting Omarchy Menu on Super + Space
+# unbind = SUPER SHIFT, Space
+# bindd = SUPER SHIFT, SPACE, Omarchy menu, exec, omarchy-menu
 ```
 
 `hypr/monitors.conf`
@@ -288,112 +223,98 @@ monitor=DP-7,3440x1440@99.98Hz,auto-left,auto
 
 `nvim/lua/config/options.lua`
 
+Set relative line numbers + disable automatically generating comments on newline when writing comments.
+
 ```lua
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 vim.opt.relativenumber = true
+vim.cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
 ```
 
-`waybar/style.css`
+`nvim/lua/plugins/completions.lua`
 
-```css
-@import "../omarchy/current/theme/waybar.css";
+Remove non-LSP suggestions from the completions list.
 
-* {
-  background-color: @background;
-  color: @foreground;
-
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: 'GeistMono Nerd Font';
-  font-size: 14px;
-}
-
-.modules-left {
-  margin-left: 8px;
-}
-
-.modules-right {
-  margin-right: 8px;
-}
-
-#workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
-}
-
-#workspaces button.empty {
-  opacity: 0.5;
-}
-
-#tray,
-#cpu,
-#battery,
-#network,
-#bluetooth,
-#pulseaudio,
-#custom-omarchy,
-#custom-update {
-  min-width: 12px;
-  margin: 0 7.5px;
-}
-
-#custom-expand-icon {
-  margin-right: 7px;
-}
-
-tooltip {
-  padding: 2px;
-}
-
-#custom-update {
-  font-size: 10px;
-}
-
-#clock {
-  margin-left: 8.75px;
-}
-
-.hidden {
-  opacity: 0;
+```lua
+return {
+  "saghen/blink.cmp",
+  opts = {
+    sources = {
+      default = { "lsp" },
+      transform_items = function(_, items)
+        return vim.tbl_filter(function(item)
+          local kind = require("blink.cmp.types").CompletionItemKind[item.kind]
+          return kind ~= "Text" and kind ~= "Snippet" and kind ~= "Macro"
+        end, items)
+      end,
+    },
+  },
 }
 ```
 
-`mimeapps.list`
+`nvim/lua/plugins/disabled.lua`
 
-```conf
-[Default Applications]
-image/png=imv.desktop
-image/jpeg=imv.desktop
-image/gif=imv.desktop
-image/webp=imv.desktop
-image/bmp=imv.desktop
-image/tiff=imv.desktop
-application/pdf=org.gnome.Evince.desktop
-text/html=firefox.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
-x-scheme-handler/about=firefox.desktop
-x-scheme-handler/unknown=firefox.desktop
-video/mp4=mpv.desktop
-video/x-msvideo=mpv.desktop
-video/x-matroska=mpv.desktop
-video/x-flv=mpv.desktop
-video/x-ms-wmv=mpv.desktop
-video/mpeg=mpv.desktop
-video/ogg=mpv.desktop
-video/webm=mpv.desktop
-video/quicktime=mpv.desktop
-video/3gpp=mpv.desktop
-video/3gpp2=mpv.desktop
-video/x-ms-asf=mpv.desktop
-video/x-ogm+ogg=mpv.desktop
-video/x-theora+ogg=mpv.desktop
-application/ogg=mpv.desktop
+Disable mini AI features.
+
+```lua
+return {
+  {
+    "nvim-mini/mini.ai",
+    enabled = false,
+  },
+}
+```
+
+`nvim/lua/plugins/lsp.lua`
+
+Disable concealing symbols in markdown files.
+
+```lua
+return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function()
+          vim.opt_local.conceallevel = 0
+        end,
+      })
+    end,
+  },
+}
+```
+
+`nvim/lua/plugins/pairs.lua`
+
+Disable pairs for single quote and grave accent.
+
+```lua
+return {
+  "nvim-mini/mini.pairs",
+  opts = {
+    mappings = {
+      ["'"] = false,
+      ["`"] = false,
+    },
+  },
+}
+```
+
+## Fix Laptop Screen Recording
+
+The following configuration is required for `omarchy-bin-screenrecord` to function properly on my Dell XPS 16 laptop.
+
+```sh
+yay -Syu intel-media-driver libva-utils
+```
+
+Modify `~/.bashrc`:
+
+```sh
+export LIBVA_DRIVER_NAME=iHD
 ```
 
 ## VS Code Keyring
