@@ -148,6 +148,7 @@ $terminal = uwsm app -- $TERMINAL
 $browser = omarchy-launch-browser
 
 bindd = SUPER, RETURN, Terminal, exec, $terminal
+bindd = SUPER, L, Suspend, exec, systemctl suspend
 bindd = SUPER SHIFT, F, File manager, exec, uwsm app -- nautilus --new-window
 bindd = SUPER SHIFT, B, Browser, exec, uwsm app -- firefox
 bindd = SUPER SHIFT, M, Music, exec, omarchy-launch-or-focus spotify
