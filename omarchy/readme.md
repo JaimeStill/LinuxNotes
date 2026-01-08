@@ -14,11 +14,11 @@ Be sure to follow each section in sequence as they are listed in order of depend
 Install the following packages (<kbd>Super+Alt+Space</kbd> -> Install -> Package):
 
 ```sh
-appgate-sdp
 azure-cli
 caligula
 ccid
 firefox
+gnome-keyring
 libappindicator-gtk3
 nvidia-container-toolkit
 opensc
@@ -302,6 +302,27 @@ return {
     },
   },
 }
+```
+
+## NVIDIA Update Regenerate CDI spec
+
+Create an update hook that will automatically regenerate the CDI spec whenever `nvidia-utils`, `nivida-container-toolkit`, or `egl-wayland` packages are updated.
+
+Save to `/etc/pacman.d/hooks/nvidia-cdi.hook`:
+
+```ini
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = nvidia-utils
+Target = nvidia-container-toolkit
+Target = egl-wayland
+
+[Action]
+Description = Regenerating NVIDIA CDI specification...
+When = PostTransaction
+Exec = /usr/bin/nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
 ```
 
 ## Fix Laptop Screen Recording
