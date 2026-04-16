@@ -27,9 +27,10 @@ pcsclite
 visual-studio-code-bin
 ```
 
-Install the following AUR package (<kbd>Super+Alt+Space</kbd> -> Install -> AUR):
+Install the following AUR packages (<kbd>Super+Alt+Space</kbd> -> Install -> AUR):
 
 ```sh
+blesh-git
 ente-auth-bin
 ```
 
@@ -499,6 +500,25 @@ alias az-cloud='az cloud set -n AzureCloud'
 alias az-gov='az cloud set -n AzureUSGovernment'
 alias az-gov-test='az account set -n s2va-gov-test'
 alias az-gov-ss='az account set -n s2va-gov-sharedservices'
+```
+
+## Bash Inline History Autocomplete
+
+> [!IMPORTANT] **Known issue on Ghostty <= 1.3.1**: cosmetic double prompt on first shell render. Alacritty and other terminals are unaffected.
+
+Update `~/.bashrc` as follows
+
+```sh
+# If not running interactively, don't do anything (leave this at the top of this file)
+[[ $- != *i* ]] && return
+
+# ble.sh pre-init (must stay below the guard above)
+source /usr/share/blesh/ble.sh --noattach
+
+# ... rest of ~/.bashrc
+
+# Attach ble.sh after all prompt integrations are setup
+[[ ${BLE_VERSION-} ]] && ble-attach
 ```
 
 ## Appgate SDP VPN Configuration
