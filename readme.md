@@ -8,3 +8,4 @@ Distros:
 Tools:
 
 - [Neovim](./nvim)
+- [Steam](./steam)
